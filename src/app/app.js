@@ -55,7 +55,11 @@ var FileTree = function() {
 
 function createFileTree(input) {
   var fileTree = new FileTree();
-  console.log(input)
+  var parentElement = input.shift();
+  input.sort(function(a, b) {
+    return a.id - b.id;
+  });
+  input.unshift(parentElement);
 
   for (var i = 0; i < input.length; i++) {
     var inputNode = input[i];
